@@ -138,9 +138,7 @@ if st.button("Generate Image"):
 
         if "process_id" in response_data:
             status_url = response_data["status_url"]
-            st.success(
-                f"Image generation started. Process ID: {response_data['process_id']}."
-            )
+            st.success("Image generation started.")
 
             # Initialize progress bar
             progress_bar = st.progress(0)
@@ -156,7 +154,10 @@ if st.button("Generate Image"):
                     completed = True
                     output_urls = status_data["result"].get("output", [])
                     for url in output_urls:
-                        st.image(url, caption="Generated Image", use_column_width=True)
+                        st.image(
+                            url, caption="Generated Image", use_container_width=True
+                        )
+
                         st.success(f"Image generation completed. Output URL: {url}")
                 elif status_data["status"] in ["IN_PROGRESS", "IN_QUEUE"]:
                     # Update the progress bar based on a hypothetical number of stages (you can adjust this logic)
