@@ -118,7 +118,7 @@ if input_passcode == PASSCODE:
     if st.button("Generate Image"):
         with st.spinner("Generating image..."):
             # First API for generating images
-            first_api = "https://api.monsterapi.ai/v1/generate/sdxl-base"
+            first_api = st.secrets["imagegen_api_url"]
 
             payload = {
                 "aspect_ratio": aspect_ratio,
@@ -137,7 +137,7 @@ if input_passcode == PASSCODE:
             headers = {
                 "accept": "application/json",
                 "content-type": "application/json",
-                "authorization": f"Bearer {st.secrets['monsterapi_key']}",
+                "authorization": f"Bearer {st.secrets['api_key']}",
             }
 
             # Step 1: Send request to the first API
