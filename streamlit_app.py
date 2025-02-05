@@ -162,9 +162,7 @@ if input_passcode == PASSCODE:
                         completed = True
                         output_urls = status_data["result"].get("output", [])
                         for url in output_urls:
-                            st.image(
-                                url, caption="Generated Image", use_container_width=True
-                            )
+                            st.image(url, caption="Generated Image")
                             st.success(f"Image generation completed. Output URL: {url}")
                     elif status_data["status"] in ["IN_PROGRESS", "IN_QUEUE"]:
                         # Update the progress bar
