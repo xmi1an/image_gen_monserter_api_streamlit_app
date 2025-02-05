@@ -15,7 +15,7 @@ with col1:
 
 with col2:
     negprompt = st.text_area(
-        "Negative Prompt",
+        "Don't want in the image",
         "deformed, bad anatomy, disfigured, poorly drawn face",
         height=100,
     )
